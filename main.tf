@@ -8,12 +8,13 @@ resource "aws_vpc" "my_vpc" {
     Name = "my_vpc"
   }
 }
-
+data "aws_availability_zones" "available" {}
 resource "aws_subnet" "private_subnet" {
+  count             = length(data.aws_availability_zones.available.names)
   vpc_id            = aws_vpc.my_vpc.id
-  cidr_block        = "10.10.1.0/24"
-  availability_zone = "us-east-1a"
+  cidr_block        = element(var.subnet_cidr_blocks, count.index)
+  availability_zone = element(data.aws_availability_zones.available.names, count.index)
   tags = {
-    Name = "private_subnet"
+    Name = "private_subnet_${count.index}"
   }
 }
