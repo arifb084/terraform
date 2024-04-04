@@ -6,5 +6,5 @@ variable "availability_zones" {
 variable "subnet_cidr_blocks" {
   description = "A list of CIDR blocks"
   type        = list(string)
-  default     = ["10.10.60.0/24", "10.10.70.0/24", "10.10.80.0/24", "10.10.90.0/24"]  # You can provide default values here
+  default     = ["10.10.60.0/24", "10.10.70.0/24", "10.10.80.0/24", "10.10.90.0/24", "10.10.110.0/24", "10.10.120.0/24"]  # You can provide default values here
 }
