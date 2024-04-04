@@ -8,6 +8,7 @@ resource "aws_vpc" "my_vpc" {
     Name = "my_vpc"
   }
 }
+<<<<<<< HEAD
 data "aws_availability_zones" "available" {}
 resource "aws_subnet" "private_subnet" {
   count             = length(data.aws_availability_zones.available.names)
@@ -34,3 +35,6 @@ resource "aws_subnet" "private_subnet_additional" {
     Name = "private_subnet_additional_${count.index}"
   }
 }
+=======
+
+>>>>>>> parent of a19b329 (subnet added)
